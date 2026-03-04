@@ -50,20 +50,16 @@ public class MainController implements Initializable {
     }
 
     private void createData() {
-        Renovation r;
+        Renovation f;
+        Renovation pa;
+        Renovation pl;
         for (int i = 1; i <= 10; i++) {
-           r = new Flooring();
-           r.setAddress("ул. Ленина");
-           r.setS(100);
-           dataList.add(r);
-           r = new Painting();
-           r.setAddress("ул. Карла-Маркса");
-           r.setS(200);
-           dataList.add(r);
-           r = new Plumbing();
-           r.setAddress("ул. Энгельса");
-           r.setS(300);
-           dataList.add(r);
+            f = new Flooring("ул. Ленина", 100);
+            pa = new Painting("ул. Карла-Маркса", 200);
+            pl = new Plumbing("ул. Энгельса", 300);
+            dataList.add(f);
+            dataList.add(pa);
+            dataList.add(pl);
         }
     }
 }
