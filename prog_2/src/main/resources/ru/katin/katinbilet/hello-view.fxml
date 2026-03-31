@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.katin.katinbilet.Controllers.HelloController">
+   <children>
+      <BorderPane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TableView prefHeight="579.0" prefWidth="805.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn id="column_num_pp" fx:id="colNumPP" prefWidth="121.0" text="Номер п/п " />
+                <TableColumn id="column_ciphr" fx:id="colCiphr" prefWidth="189.0" text="Личный шифр студента" />
+                  <TableColumn id="column_full_name" fx:id="colFullName" prefWidth="205.0" text="Фамилия имя отчество " />
+                  <TableColumn prefWidth="75.0" text="Дата Рождения">
+                     <columns>
+                        <TableColumn id="column_data_num" fx:id="colBirthdNum" minWidth="0.0" prefWidth="75.0" text="Число" />
+                        <TableColumn id="column_date_month" fx:id="colBirthdMonth" minWidth="0.0" prefWidth="71.0" text="Месяц" />
+                        <TableColumn id="column_date_year" fx:id="colBirthdYear" minWidth="0.0" prefWidth="76.0" text="Год" />
+                     </columns>
+                  </TableColumn>
+              </columns>
+            </TableView>
+         </center>
+         <bottom>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="739.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnLoadData" mnemonicParsing="false" onAction="#btnLoadDataAction" text="Загрузить" />
+                  <Button fx:id="btnFind" mnemonicParsing="false" onAction="#btnFindAction" text="Найти" />
+                  <Button fx:id="btnDel" mnemonicParsing="false" onAction="#btnDel" text="Удалить" />
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
