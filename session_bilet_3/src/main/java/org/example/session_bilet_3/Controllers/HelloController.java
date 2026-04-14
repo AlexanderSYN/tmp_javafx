@@ -72,17 +72,25 @@ public class HelloController {
     @FXML
     void btnLoadDataAction(ActionEvent event) {
         loadTextToDataList();
+        int count = 0;
 
-        for (Accounting actng : dataList)
+        for (Accounting actng : dataList) {
             tableViewAccounting.getItems().setAll(dataList);
-
+            count++;
+        }
         setValueInTable();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("заугрзка!");
+        alert.setHeaderText(String.format("Загружено: %d", count));
+        alert.show();
     }
 
     @FXML
     void delActionSelected(ActionEvent event) {
         Accounting accounting = tableViewAccounting.getSelectionModel().getSelectedItem();
         Optional<ButtonType> chooice = showConfirmationPopup(accounting.fio());
+
         if (accounting == null) return;
         if (chooice.get() == ButtonType.OK) {
             dataList.remove(accounting);
