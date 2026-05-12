@@ -1,0 +1,8 @@
+CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    fam VARCHAR(255) NOT NULL,
+    salary NUMERIC(10, 2) NOT NULL
+);
+INSERT into employees (fam, salary) VALUES ('Иванов', 5000.00),
+    ('Петров', 6000.00),
+    ('Николаев', 5500.00);
