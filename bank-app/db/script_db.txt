@@ -1,0 +1,68 @@
+-- public.clients definition
+
+-- Drop table
+
+-- DROP TABLE public.clients;
+
+CREATE TABLE public.clients (
+	client_id serial4 NOT NULL,
+	"name" varchar(255) NOT NULL,
+	kind_property varchar(255) NOT NULL,
+	address varchar(255) NOT NULL,
+	phone varchar(20) NOT NULL,
+	contact varchar(255) NOT NULL,
+	CONSTRAINT clients_pkey PRIMARY KEY (client_id)
+);
+
+
+-- public.kind_credit definition
+
+-- Drop table
+
+-- DROP TABLE public.kind_credit;
+
+CREATE TABLE public.kind_credit (
+	kind_credit_id serial4 NOT NULL,
+	"name" varchar(255) NULL,
+	conditions text NOT NULL,
+	rate numeric NOT NULL,
+	term int4 NOT NULL,
+	CONSTRAINT kind_credit_pkey PRIMARY KEY (kind_credit_id)
+);
+
+
+-- public.credits definition
+
+-- Drop table
+
+-- DROP TABLE public.credits;
+
+CREATE TABLE public.credits (
+	credit_id serial4 NOT NULL,
+	kind_credit_id int4 NOT NULL,
+	client_id int4 NOT NULL,
+	summa numeric NOT NULL,
+	"date" date NOT NULL,
+	CONSTRAINT credits_pkey PRIMARY KEY (credit_id),
+	CONSTRAINT credits_client_id_fkey FOREIGN KEY (client_id) REFERENCES public.clients(client_id) ON DELETE CASCADE,
+	CONSTRAINT credits_kind_credit_id_fkey FOREIGN KEY (kind_credit_id) REFERENCES public.kind_credit(kind_credit_id) ON DELETE CASCADE
+);
+
+INSERT INTO public.kind_credit ("name",conditions,rate,term) VALUES
+	 ('Потребительский','Подтверждение дохода, возраст от 21 года',15.5,36),
+	 ('Автокредит','Первоначальный взнос от 20%, КАСКО обязательно',9.9,60),
+	 ('Рассрочка','Без превоначального взноса',1.0,6);
+INSERT INTO public.credits (kind_credit_id,client_id,summa,"date") VALUES
+	 (1,1,150000,'2024-02-08'),
+	 (3,2,200000,'2025-03-15'),
+	 (3,3,10000000,'2025-03-15'),
+	 (1,2,11111111,'2026-04-10');
+INSERT INTO public.clients ("name",kind_property,address,phone,contact) VALUES
+	 ('АКЦИОНЕРНОЕ ОБЩЕСТВО "ЗЕЛЕНОДОЛЬСКИЙ ДЕРЕВООБРАБАТЫВАЮЩИЙ ЗАВОД"','Частная','422541, Республика Татарстан,
+Зеленодольский район, г. Зеленодольск, ул. Кооперативная, д. 1','+7 843 713-20-43','Ситдикова Лилия Исмагиловна'),
+	 ('ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "ДИТЭЙЛ"','Частная','422550, Республика Татарстан, Зеленодольский район,
+город Зеленодольск, ул Гоголя, д. 35, помещ.1','+7 (84371) 3-30-47','Мазанов Дмитрий Иванович'),
+	 ('АУ Зеленодольского муниципального района «Инвестиционный центр «Зеленый Дол»','Государственная','422550, РТ,
+г.Зеленодольск, ул. Первомайская, д. 20','+7 (84371) 4-17-91','Ибрагимова Раиля Марселовна');
+
+
