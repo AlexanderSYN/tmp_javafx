@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<GridPane alignment="center" hgap="10" prefWidth="339.0" vgap="10" xmlns="http://javafx.com/javafx/23.0.1"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.zelmex.bankapp.controller.kindCredit.AddEditKindCreditDialog">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <Label text="Название:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label text="Срок:" GridPane.rowIndex="3" />
+        <TextField fx:id="termField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Label text="Ставка:" GridPane.rowIndex="2" />
+        <TextField fx:id="rateField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label text="Условия:" GridPane.rowIndex="1" />
+        <TextField fx:id="conditionField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button fx:id="okButton" contentDisplay="CENTER" mnemonicParsing="false" text="ОК" GridPane.columnIndex="1"
+                GridPane.columnSpan="2" GridPane.rowIndex="6" />
+        <Label fx:id="errorLabel" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+    </children>
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>
